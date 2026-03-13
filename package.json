@@ -1,0 +1,25 @@
+{
+  "name": "tiendavirtual",
+  "version": "1.0.0",
+  "description": "creacion de API-REST para una tienda virtual",
+  "homepage": "https://github.com/Diego-240680/Backend-Tienda-Virtual#readme",
+  "bugs": {
+    "url": "https://github.com/Diego-240680/Backend-Tienda-Virtual/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diego-240680/Backend-Tienda-Virtual.git"
+  },
+  "license": "ISC",
+  "author": "Diego Aldana Olvera",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "morgan": "^1.10.1"
+  }
+}
