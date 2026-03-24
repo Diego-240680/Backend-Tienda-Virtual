@@ -10,24 +10,39 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       estado: {
-        type: Sequelize.STRING
+        type: Sequelize.ENUM('pendiente', 'completado', 'cancelado'),
+        allowNull: false,
+        defaultValue: 'pendiente'
       },
       id_usuario: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'tbc_usuarios',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-      decha_creacion: {
-        type: Sequelize.STRING
+      fecha_creacion: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.fn('now')
       },
       total: {
-        type: Sequelize.STRING
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false,
+        defaultValue: 0.00
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },

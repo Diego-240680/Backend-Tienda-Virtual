@@ -12,8 +12,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // this.belongsTo(models.tbc_carrito, { foreignKey: 'id_carrito' });
-      // this.belongsTo(models.tbb_productos, { foreignKey: 'id_producto' });
     }
   }
 
@@ -28,11 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     cantidad: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 1,
-      validate: {
-        min: 1 // Evita que se agreguen 0 o cantidades negativas
-      }
+      allowNull: false
     },
     precio_unitario: {
       type: DataTypes.DECIMAL(10, 2),
@@ -44,6 +38,19 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'tbd_carrito_detalle',
     timestamps: true
   });
+
+  // Asociaciones siguiendo tu estilo de tbb_productos
+  tbd_carrito_detalle.associate = function(models) {
+    tbd_carrito_detalle.belongsTo(models.tbc_carrito, {
+      as: 'tbc_carrito',
+      foreignKey: 'id_carrito', // Corregido: 'g' antes de 'n'
+    });
+
+    tbd_carrito_detalle.belongsTo(models.tbb_productos, {
+      as: 'tbb_productos',
+      foreignKey: 'id_producto',
+    });
+  };
 
   return tbd_carrito_detalle;
 };

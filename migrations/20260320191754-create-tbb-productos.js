@@ -1,7 +1,7 @@
 'use strict';
 
 const { Model } = require('sequelize');
-const { onUpdated } = require('vue');
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

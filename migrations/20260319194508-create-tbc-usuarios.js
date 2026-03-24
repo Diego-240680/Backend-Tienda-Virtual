@@ -1,7 +1,4 @@
 'use strict';
-
-const { toDefaultValue } = require('sequelize/lib/utils');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -14,40 +11,44 @@ module.exports = {
       },
       nombre: {
         type: Sequelize.STRING(100),
-        allowNull:false
+        allowNull: false
       },
       direccion: {
         type: Sequelize.STRING(200),
-        allowNull:false
+        allowNull: false
       },
       telefono: {
         type: Sequelize.STRING(15),
-        allowNull:false
+        allowNull: false
       },
       email: {
         type: Sequelize.STRING(120),
-        allowNull:false
+        allowNull: false,
+        unique: true
       },
       password: {
         type: Sequelize.STRING(255),
-        allowNull:false
+        allowNull: false
       },
       rol: {
         type: Sequelize.ENUM('admin', 'cliente'),
-        allowNull:false,
-        toDefaultValue: 'cliente'
+        allowNull: false,
+        defaultValue: 'cliente'
       },
       fecha_registro: {
         type: Sequelize.DATE,
-        allowNull:false
+        allowNull: false,
+        defaultValue: Sequelize.fn('now')
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
