@@ -4,7 +4,7 @@ const categorias = db.tbc_categorias;
 
 module.exports = {
     create(req, res){
-        return categoria
+        return categorias
         .create({
             nombre: req.body.nombre
         })
@@ -27,7 +27,7 @@ module.exports = {
         .catch(error => res.status(400).send(error))
     },
     update(req, res){
-        return categoria.update(
+        return categorias.update(
             {
             nombre: req.body.nombre
             
@@ -42,7 +42,7 @@ module.exports = {
         .catch(error => res.status(400).send(error))
     },
      delete(req, res){
-        return categoria.destroy({
+        return categorias.destroy({
             where: {
                 nombre: req.params.nombre,
             }
