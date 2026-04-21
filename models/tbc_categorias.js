@@ -14,22 +14,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   tbc_categorias.init({
-    nombre: DataTypes.STRING(100),
-    allownull:false
-    
-  }, {
-    sequelize,
-    modelName: 'tbc_categorias',
-  });
+  nombre: { // Este debe ser el nombre real de tu columna en MySQL
+    type: DataTypes.STRING(100),
+    allowNull: false
+  }
+}, {
+  sequelize,
+  modelName: 'tbc_categorias',
+});
 
-  tbc_categorias.associate = function(models) {
-tbc_categorias.hasMany(models.tbb_productos,
-    {
+tbc_categorias.associate = function(models) {
+    tbc_categorias.hasMany(models.tbb_productos, {
       as: 'tbb_productos',
-      foreingkey: 'id_categoria',
-    }
-  );
-};
+      foreignKey: 'id_categoria',
+    });
+  };
 
-  return tbc_categorias;
-};
+  return tbc_categorias; // El return debe estar justo antes de la última llave
+}; // Esta llave cierra el module.exports de la línea 5

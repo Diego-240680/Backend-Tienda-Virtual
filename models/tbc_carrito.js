@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'tbc_carrito',
-    tableName: 'tbc_carrito',
+    tableName: 'tbc_carritos',
     timestamps: true
   });
 

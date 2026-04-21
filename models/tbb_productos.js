@@ -47,13 +47,11 @@ module.exports = (sequelize, DataTypes) => {
 );
 
 tbb_productos.associate = function(models) {
-tbb_productos.belongsTo(models.tbc_categorias,
-    {
+    tbb_productos.belongsTo(models.tbc_categorias, {
       as: 'tbc_categorias',
-      foreingkey: 'id_categoria',
-    }
-  );
-};
+      foreignKey: 'id_categoria'
+    });
+  };
 
   return tbb_productos;
-};
+}; // <--- Solo debe haber UNA llave de cierre aquí al final
