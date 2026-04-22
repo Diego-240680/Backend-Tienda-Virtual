@@ -10,6 +10,7 @@ module.exports = {
             descripcion: req.body.descripcion,
             precio: req.body.precio,
             stock: req.body.stock,
+            imagen: req.body.imagen,
             id_categoria: req.body.id_categoria
         })
         .then(producto=>res.status(200).send(producto))
@@ -36,6 +37,7 @@ module.exports = {
             descripcion: req.body.descripcion,
             precio: req.body.precio,
             stock: req.body.stock,
+            imagen: req.body.imagen,
             id_categoria: req.body.id_categoria
             }, 
             {

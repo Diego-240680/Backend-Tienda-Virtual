@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const http = require('http');
 const app = express();
@@ -13,7 +14,7 @@ app.use(cors({
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extender: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res)=> res.status(200).send({message: 'bienvenido a mi API de tienda virtual',}));
 
